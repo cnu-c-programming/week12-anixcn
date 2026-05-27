@@ -1,22 +1,33 @@
 #include <stdio.h>
 #include <string.h>
 
-typedef struct student {
+typedef struct student{
     char name[64];
     int score;
 } Student;
+
 
 int main(int argc, const char* argv[]) {
     FILE* fp = fopen("student.txt", "r");
     int count = 0;
     Student students[64];
 
-
+    while (feof(fp) == NULL) {
+        fscanf(fp, "%s %d", students[count].name, &students[count].score);
+        count++;
+    }
 
     int max = 0;
     float avg = 0;
 
+    int total = 0;
 
+    for(int i=0;i<count;i++){
+        total+= students[i].score;
+        if(students[i].score>max) max = students[i].score; 
+    }
+    
+    avg = total / (count-1);
 
     printf("max: %d\n", max);
     printf("avg: %.2f\n", avg);
@@ -25,4 +36,3 @@ int main(int argc, const char* argv[]) {
 
     return 0;
 }
-
