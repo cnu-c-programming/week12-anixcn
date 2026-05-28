@@ -7,4 +7,3 @@ int main(int argc, const char* argv[]) {
     "error: cannot write\n"
 
 }
-
