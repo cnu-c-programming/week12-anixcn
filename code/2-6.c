@@ -5,11 +5,16 @@ int main(int argc, const char* argv[]) {
     if (argc < 3)
         return 0;
 
-    FILE* fp = fopen(argv[1], "r");
-    const char* target_str = argv[2];
+        FILE* fp = fopen(argv[1], "r");
+        const char* target_str = argv[2];
 
+        char line[256];
 
-    
-    fclose(fp);
+        while (fgets(line,sizeof(line), fp) != NULL) {
+            if (strstr(line, target_str) != NULL) {
+                printf("%s", line);
+            }
+        }
+
+        fclose(fp);
 }
-
