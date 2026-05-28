@@ -10,10 +10,10 @@ int job() {
 }
 
 int main(int argc, const char* argv[]) {
-    if (job() == 1)
+    if (job() == 1) {
         logger("success");
-    else
+    } else {
         logger("fail");
-
+    }
     return 0;
 }
